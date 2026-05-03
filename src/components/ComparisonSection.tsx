@@ -12,25 +12,25 @@ interface Project {
 const projects: Project[] = [
   {
     num: "01",
-    title: "FITFLOW",
-    desc: "A responsive Push–Pull–Legs workout application with animated UI, interactive exercise cards, and demo videos. Achieved adoption by 30+ users by delivering structured fitness guidance and improving workout consistency.",
-    tech: ["React", "JavaScript", "HTML", "CSS", "Responsive Design"],
-    github: "https://github.com/kunal4419/FitFlow.git",
-    external: "https://fitflowbykunal.netlify.app",
+    title: "YOURHRMS",
+    desc: "Enterprise-grade HR Management app deployed on Google Play Store. Geolocation-validated attendance, FCM push notifications, and OTP authentication. Reduced app startup latency by 35% and delivery timelines by 25% through API optimisation and a shared component system.",
+    tech: ["Flutter", "Riverpod", "Dio", "Firebase FCM", "Clean Architecture", "Play Store"],
+    github: "https://github.com/kunal4419",
+    external: "https://play.google.com/store",
   },
   {
     num: "02",
-    title: "MEDIX — EHR SYSTEM",
-    desc: "A hybrid Electronic Health Record platform eliminating data fragmentation. Unified role-based interface for Admins, Doctors, and Patients boosting workflow efficiency by 45%. Secure JWT auth reducing unauthorized access by 95%.",
-    tech: ["Next.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "JWT"],
-    github: "https://github.com/kunal4419/Medix.git",
+    title: "OYNX — GYM PLATFORM",
+    desc: "Multi-tenant SaaS gym management platform with Supabase row-level security ensuring complete data isolation per gym owner. RBAC for Superadmin and Owner roles. Reduced missed renewals by 40% and manual follow-up effort by 60% via smart expiry filters and WhatsApp reminder automation.",
+    tech: ["Flutter", "Supabase", "RBAC", "Multi-tenant", "Provider", "Analytics"],
+    github: "https://github.com/kunal4419",
   },
   {
     num: "03",
-    title: "STOREMETER",
-    desc: "A role-based store rating platform (User/Owner/Admin) with structured dashboards enhancing user interaction flow by 40%. Secure JWT auth and PostgreSQL with structured migrations ensuring 100% reproducible database setups.",
-    tech: ["React", "Node.js", "PostgreSQL", "JWT", "Express.js"],
-    github: "https://github.com/kunal4419/Kunal-s-Store-Rating.git",
+    title: "MEDCARD — HEALTHCARE APP",
+    desc: "Dual-role healthcare service discovery app with fully independent navigation stacks for Providers and Subscribers. Geospatial provider discovery with map integration and QR scanning. Flutter frontend integrated with a Python backend via REST APIs using a centralised Dio interceptor layer.",
+    tech: ["Flutter", "Python REST API", "Dio", "Maps", "QR Scan", "Repository Pattern"],
+    github: "https://github.com/kunal4419",
   },
 ];
 
@@ -109,7 +109,7 @@ const ComparisonSection = () => {
                     rel="noopener noreferrer"
                     className="font-mono text-xs uppercase tracking-widest text-foreground border-b-2 border-foreground hover:text-primary hover:border-primary transition-colors"
                   >
-                    Live ↗
+                    Play Store ↗
                   </a>
                 )}
               </div>

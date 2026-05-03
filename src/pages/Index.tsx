@@ -17,12 +17,12 @@ const Index = () => {
       {/* Spacer for fixed header */}
       <div className="h-16 md:h-20" />
 
-      <TickerBanner text="FULL-STACK DEVELOPER · KUNAL PATEL · JAVA · REACT · NODE.JS · AWS · GCP · NEXT.JS · " />
+      <TickerBanner text="FLUTTER DEVELOPER · KUNAL PATEL · DART · CLEAN ARCHITECTURE · RIVERPOD · FIREBASE · PLAY STORE · SUPABASE · " />
       <HeroSection />
-      <TickerBanner text="CLEAN CODE · SCALABLE APPS · USER-CENTRIC · PROBLEM SOLVER · 250+ LEETCODE · " />
+      <TickerBanner text="ARCHITECTURE FIRST · PRODUCTION GRADE · CROSS PLATFORM · GEOLOCATION · FCM · JWT AUTH · " />
       <FeatureGrid />
       <ComparisonSection />
-      <TickerBanner text="FITFLOW · MEDIX · STOREMETER · OPEN TO OPPORTUNITIES · LET'S BUILD SOMETHING · " />
+      <TickerBanner text="YOURHRMS · OYNX · MEDCARD · OPEN TO MID-SENIOR ROLES · LET'S BUILD SOMETHING · " />
       <EducationSection />
       <ContactSection />
 
@@ -32,4 +32,3 @@ const Index = () => {
 };
 
 export default Index;
-

@@ -1,4 +1,4 @@
-const TickerBanner = ({ text = "BREAK THE MOLD · NO COMPROMISE · HIGH CONTRAST · RAW DESIGN · DIGITAL GRUNGE · PRINT IS NOT DEAD · " }) => {
+const TickerBanner = ({ text = "FLUTTER DEVELOPER · CLEAN ARCHITECTURE · PLAY STORE DEPLOYED · PRODUCTION GRADE · CROSS PLATFORM · ARCHITECTURE FIRST · AI AUGMENTED · " }) => {
   const repeated = text.repeat(4);
 
   return (

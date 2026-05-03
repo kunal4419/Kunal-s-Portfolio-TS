@@ -1,16 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 
 const skills = [
-  { num: "01", title: "JAVA", desc: "Object-oriented programming, data structures, algorithms, and backend development." },
-  { num: "02", title: "JAVASCRIPT", desc: "Full-stack JS development including ES6+, async patterns, and DOM manipulation." },
-  { num: "03", title: "REACT", desc: "Component-driven UIs with hooks, state management, and responsive design." },
-  { num: "04", title: "NODE.JS & EXPRESS", desc: "RESTful API development, middleware, JWT auth, and scalable server architecture." },
-  { num: "05", title: "DATABASES", desc: "MongoDB & PostgreSQL — schema design, migrations, seeders, and query optimization." },
-  { num: "06", title: "CLOUD & DEVOPS", desc: "AWS (IAM, EC2, S3) and GCP — deployment, networking, and cloud architecture." },
-  { num: "07", title: "HTML & CSS", desc: "Semantic markup, responsive layouts, and modern CSS including Flexbox and Grid." },
-  { num: "08", title: "TAILWIND CSS", desc: "Rapid UI development with utility-first CSS and a consistent design system." },
-  { num: "09", title: "NEXT.JS", desc: "Server-side rendering, routing, and building production-grade React applications." },
-  { num: "10", title: "PROBLEM SOLVING", desc: "250+ problems solved on LeetCode, GeeksforGeeks, and HackerRank." },
+  { num: "01", title: "FLUTTER & DART", desc: "Cross-platform mobile app development for Android and iOS. Custom widgets, animations, gesture handlers, and platform channels." },
+  { num: "02", title: "STATE MANAGEMENT", desc: "Riverpod, Provider, GetX, and BLoC — choosing the right pattern per use case, not just defaulting to one." },
+  { num: "03", title: "CLEAN ARCHITECTURE", desc: "Feature-first modularisation, Repository Pattern, Dependency Injection, and separation of domain, data, and presentation layers." },
+  { num: "04", title: "REST API & AUTH", desc: "Dio HTTP client, interceptors, token refresh, JWT session handling, OTP auth, and flutter_secure_storage for encrypted token persistence." },
+  { num: "05", title: "FIREBASE & SUPABASE", desc: "FCM push notifications with device token sync, Firestore, and Supabase multi-tenant architecture with row-level security." },
+  { num: "06", title: "DEVICE APIs", desc: "Geolocation with out-of-bound detection, camera integration, push notifications (FCM/APNs), local storage, and file system access." },
+  { num: "07", title: "PERFORMANCE OPT.", desc: "Widget rebuild minimisation, lazy loading, image caching, API response caching, and memory profiling with Flutter DevTools." },
+  { num: "08", title: "CI/CD & DEPLOYMENT", desc: "Google Play Console, app signing, build variants, release tracks, production rollouts, and GitHub Actions automation." },
+  { num: "09", title: "AI-AUGMENTED DEV", desc: "Architecture-first workflow using Claude Code and GitHub Copilot — research → LLD design → implementation → optimisation." },
+  { num: "10", title: "PROBLEM SOLVING", desc: "250+ problems solved on LeetCode, GeeksforGeeks, and HackerRank. Strong Dart fundamentals: async/await, streams, null safety." },
 ];
 
 const rotations = ["rotate-1", "-rotate-1", "rotate-[0.5deg]", "-rotate-[0.5deg]", "rotate-1", "-rotate-[0.7deg]", "rotate-[0.3deg]", "-rotate-1", "rotate-[0.6deg]", "-rotate-[0.4deg]"];

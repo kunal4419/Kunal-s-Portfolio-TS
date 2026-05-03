@@ -30,11 +30,11 @@ const HeroSection = () => {
           <span className="inline-block rotate-[-0.5deg]">KUNAL</span>{" "}
           <span className="inline-block rotate-[0.5deg] text-primary">PATEL</span>
           <br />
-          <span className="inline-block rotate-[0.3deg] text-4xl sm:text-5xl md:text-6xl">DEVELOPER.</span>
+          <span className="inline-block rotate-[0.3deg] text-4xl sm:text-5xl md:text-6xl">APP DEVELOPER.</span>
         </h1>
 
         <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-          A computer science student and aspiring software developer with a strong interest in full-stack web development and cloud technologies. I build scalable, user-centric applications.
+          A Flutter application developer building production-grade cross-platform mobile apps. I work architecture-first — Clean Architecture, real API integration, and Play Store deployments that actually ship.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

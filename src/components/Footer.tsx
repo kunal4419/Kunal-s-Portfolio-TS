@@ -16,8 +16,8 @@ const Footer = () => {
               KUNAL<span className="text-secondary-foreground">//</span>
             </p>
             <p className="font-body text-sm text-secondary-foreground/60 max-w-xs leading-relaxed">
-              Computer Science Student &amp; Full-Stack Developer.<br />
-              Building scalable, user-centric applications.
+              Flutter Application Developer.<br />
+              Building production-grade cross-platform mobile apps.
             </p>
           </div>
 
