@@ -12,11 +12,11 @@ const HeroSection = () => {
   return (
     <section id="about" className="relative min-h-[85vh] flex items-center justify-center overflow-hidden border-b-4 border-foreground">
       {/* Watermark */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+      {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <span className="font-heading text-[300px] md:text-[500px] text-foreground opacity-[0.04] leading-none">
           $
         </span>
-      </div>
+      </div> */}
 
       {/* Halftone */}
       <div className="halftone" />
