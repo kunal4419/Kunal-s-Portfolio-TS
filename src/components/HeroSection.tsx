@@ -41,7 +41,7 @@ const HeroSection = () => {
           <a href="mailto:patelkunal4419@gmail.com" className="stamp-button text-lg px-8 py-4">
             GET IN TOUCH
           </a>
-          <a href="https://drive.google.com/file/d/1fJNWWkE6Y7d8yhzqx7w8PP73iIUM5kuT/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="stamp-button-outline text-lg px-8 py-4">
+          <a href="https://drive.google.com/file/d/1hBd6SJV7frduHHuQGhoYCr99hVuCAqkv/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="stamp-button-outline text-lg px-8 py-4">
             VIEW RESUME
           </a>
         </div>
