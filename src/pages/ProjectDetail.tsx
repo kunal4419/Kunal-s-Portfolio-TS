@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Lock, Construction } from "lucide-react";
 import { projectsData } from "@/data/projectsData";
 import Header from "@/components/Header";
 import NoiseOverlay from "@/components/NoiseOverlay";
+import { PrivateRepoModal } from "@/components/PrivateRepoModal";
+import { UnderDevModal } from "@/components/UnderDevModal";
 
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [isPrivateModalOpen, setIsPrivateModalOpen] = useState<boolean>(false);
+  const [isUnderDevModalOpen, setIsUnderDevModalOpen] = useState<boolean>(false);
 
   // Derive project directly from URL parameter to ensure instant synchronous updates on navigation
   const project = projectsData.find((p) => p.slug === slug);
@@ -146,23 +150,45 @@ const ProjectDetail = () => {
 
           {/* Clean Primary Actions */}
           <div className="flex flex-wrap items-center gap-3 pt-5 border-t-2 border-foreground/20">
-            <a
-              href={apkOrStoreLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="stamp-button text-xs sm:text-sm flex items-center gap-2 py-2.5 px-4"
-            >
-              📱 Download APK
-            </a>
+            {project.isUnderDevelopment ? (
+              <button
+                type="button"
+                onClick={() => setIsUnderDevModalOpen(true)}
+                className="stamp-button text-xs sm:text-sm flex items-center gap-2 py-2.5 px-4 cursor-pointer"
+              >
+                <Construction className="w-4 h-4 text-primary-foreground" />
+                <span>📱 Download APK (In Progress)</span>
+              </button>
+            ) : (
+              <a
+                href={apkOrStoreLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="stamp-button text-xs sm:text-sm flex items-center gap-2 py-2.5 px-4"
+              >
+                📱 Download APK
+              </a>
+            )}
 
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="stamp-button-outline text-xs sm:text-sm flex items-center gap-2 py-2.5 px-4"
-            >
-              💻 GitHub Repo
-            </a>
+            {project.isPrivate ? (
+              <button
+                type="button"
+                onClick={() => setIsPrivateModalOpen(true)}
+                className="stamp-button-outline text-xs sm:text-sm flex items-center gap-2 py-2.5 px-4 cursor-pointer hover:border-primary"
+              >
+                <Lock className="w-4 h-4 text-primary" />
+                <span>GitHub Repo (Private)</span>
+              </button>
+            ) : (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="stamp-button-outline text-xs sm:text-sm flex items-center gap-2 py-2.5 px-4"
+              >
+                💻 GitHub Repo
+              </a>
+            )}
 
             <button
               onClick={() => {
@@ -379,6 +405,24 @@ const ProjectDetail = () => {
           </div>
         </div>
       )}
+
+      {/* Private Repo Info Popup Modal */}
+      <PrivateRepoModal
+        isOpen={isPrivateModalOpen}
+        onClose={() => setIsPrivateModalOpen(false)}
+        project={project}
+      />
+
+      {/* Under Development Info Popup Modal */}
+      <UnderDevModal
+        isOpen={isUnderDevModalOpen}
+        onClose={() => setIsUnderDevModalOpen(false)}
+        project={project}
+        onViewScreenshots={() => {
+          const el = document.getElementById("screenshots");
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }}
+      />
     </div>
   );
 };

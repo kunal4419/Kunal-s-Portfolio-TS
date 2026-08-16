@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Github, Download, ArrowRight } from "lucide-react";
-import { projectsData } from "@/data/projectsData";
+import { Github, Download, ArrowRight, Lock, Construction } from "lucide-react";
+import { projectsData, ProjectData } from "@/data/projectsData";
+import { PrivateRepoModal } from "./PrivateRepoModal";
+import { UnderDevModal } from "./UnderDevModal";
 
 const rotations = [
   "rotate-1",
@@ -14,6 +16,8 @@ const rotations = [
 
 const ComparisonSection = () => {
   const [visible, setVisible] = useState(false);
+  const [privateModalProject, setPrivateModalProject] = useState<ProjectData | null>(null);
+  const [underDevProject, setUnderDevProject] = useState<ProjectData | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -61,27 +65,57 @@ const ComparisonSection = () => {
                     </span>
 
                     <div className="flex items-center gap-3">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground hover:text-primary transition-colors p-0.5"
-                        title="GitHub Repository"
-                        aria-label="GitHub Repository"
-                      >
-                        <Github className="w-4 h-4" />
-                      </a>
+                      {project.isPrivate ? (
+                        <button
+                          type="button"
+                          onClick={() => setPrivateModalProject(project)}
+                          className="text-foreground hover:text-primary transition-colors p-0.5 relative group cursor-pointer"
+                          title="Private Production Repository (Click for info)"
+                          aria-label="Private Production Repository"
+                        >
+                          <Github className="w-4 h-4" />
+                          <span className="absolute -top-1 -right-1 bg-primary text-[8px] rounded-full p-0.5 text-primary-foreground">
+                            <Lock className="w-2 h-2" />
+                          </span>
+                        </button>
+                      ) : (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground hover:text-primary transition-colors p-0.5"
+                          title="GitHub Repository"
+                          aria-label="GitHub Repository"
+                        >
+                          <Github className="w-4 h-4" />
+                        </a>
+                      )}
 
-                      <a
-                        href={apkOrStoreUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground hover:text-primary transition-colors p-0.5"
-                        title="Download APK / App Link"
-                        aria-label="Download APK"
-                      >
-                        <Download className="w-4 h-4" />
-                      </a>
+                      {project.isUnderDevelopment ? (
+                        <button
+                          type="button"
+                          onClick={() => setUnderDevProject(project)}
+                          className="text-foreground hover:text-primary transition-colors p-0.5 cursor-pointer relative"
+                          title="App Under Development (Click to view status)"
+                          aria-label="App Under Development"
+                        >
+                          <Download className="w-4 h-4" />
+                          <span className="absolute -top-1 -right-1 bg-amber-500 text-[8px] rounded-full p-0.5 text-black font-bold">
+                            <Construction className="w-2 h-2" />
+                          </span>
+                        </button>
+                      ) : (
+                        <a
+                          href={apkOrStoreUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground hover:text-primary transition-colors p-0.5"
+                          title="Download APK / App Link"
+                          aria-label="Download APK"
+                        >
+                          <Download className="w-4 h-4" />
+                        </a>
+                      )}
                     </div>
                   </div>
 
@@ -106,7 +140,7 @@ const ComparisonSection = () => {
                     to={`/project/${project.slug}`}
                     className="stamp-button w-full text-xs text-center uppercase py-2.5 px-4 font-bold tracking-wider flex items-center justify-center gap-2"
                   >
-                    <span>MORE INFORMATION</span>
+                    <span>MORE INFORMATION & SCREENSHOTS</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -116,6 +150,20 @@ const ComparisonSection = () => {
         </div>
       </div>
       <div className="torn-edge-bottom bg-secondary" />
+
+      {/* Private Repo Info Popup Modal */}
+      <PrivateRepoModal
+        isOpen={Boolean(privateModalProject)}
+        onClose={() => setPrivateModalProject(null)}
+        project={privateModalProject}
+      />
+
+      {/* Under Development Info Popup Modal */}
+      <UnderDevModal
+        isOpen={Boolean(underDevProject)}
+        onClose={() => setUnderDevProject(null)}
+        project={underDevProject}
+      />
     </section>
   );
 };

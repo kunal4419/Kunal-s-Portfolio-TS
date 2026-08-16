@@ -6,11 +6,12 @@ const skills = [
   { num: "03", title: "CLEAN ARCHITECTURE", desc: "Feature-first modularisation, Repository Pattern, Dependency Injection, and separation of domain, data, and presentation layers." },
   { num: "04", title: "REST API & AUTH", desc: "Dio HTTP client, interceptors, token refresh, JWT session handling, OTP auth, and flutter_secure_storage for encrypted token persistence." },
   { num: "05", title: "FIREBASE & SUPABASE", desc: "FCM push notifications with device token sync, Firestore, and Supabase multi-tenant architecture with row-level security." },
-  { num: "06", title: "DEVICE APIs", desc: "Geolocation with out-of-bound detection, camera integration, push notifications (FCM/APNs), local storage, and file system access." },
-  { num: "07", title: "PERFORMANCE OPT.", desc: "Widget rebuild minimisation, lazy loading, image caching, API response caching, and memory profiling with Flutter DevTools." },
-  { num: "08", title: "CI/CD & DEPLOYMENT", desc: "Google Play Console, app signing, build variants, release tracks, production rollouts, and GitHub Actions automation." },
-  { num: "09", title: "AI-AUGMENTED DEV", desc: "Architecture-first workflow using Claude Code and GitHub Copilot — research → LLD design → implementation → optimisation." },
-  { num: "10", title: "PROBLEM SOLVING", desc: "250+ problems solved on LeetCode, GeeksforGeeks, and HackerRank. Strong Dart fundamentals: async/await, streams, null safety." },
+  { num: "06", title: "DOCKER & VPS DEPLOYMENT", desc: "Containerisation with Docker & Docker Compose, Linux VPS server, Nginx reverse proxy, SSL certificates, and production backend deployment." },
+  { num: "07", title: "DEVICE APIs", desc: "Geolocation with out-of-bound detection, camera integration, push notifications (FCM/APNs), local storage, and file system access." },
+  { num: "08", title: "PERFORMANCE OPT.", desc: "Widget rebuild minimisation, lazy loading, image caching, API response caching, and memory profiling with Flutter DevTools." },
+  { num: "09", title: "CI/CD & DEPLOYMENT", desc: "Google Play Console, app signing, build variants, release tracks, production rollouts, and GitHub Actions automation." },
+  { num: "10", title: "AI-AUGMENTED DEV", desc: "Leveraging agentic AI(Claude Code, CLI Agents) across research, system design, implementation, testing, and optimisation." },
+  { num: "11", title: "PROBLEM SOLVING", desc: "250+ problems solved on LeetCode, GeeksforGeeks, and HackerRank. Strong Dart fundamentals: async/await, streams, null safety." },
 ];
 
 const rotations = ["rotate-1", "-rotate-1", "rotate-[0.5deg]", "-rotate-[0.5deg]", "rotate-1", "-rotate-[0.7deg]", "rotate-[0.3deg]", "-rotate-1", "rotate-[0.6deg]", "-rotate-[0.4deg]"];
@@ -45,7 +46,7 @@ const FeatureGrid = () => {
           {skills.map((f, i) => (
             <div
               key={f.num}
-              className={`relative bg-card border-2 border-foreground shadow-brutal p-8 pt-10 ${rotations[i]} hover:rotate-0 transition-transform`}
+              className={`relative bg-card border-2 border-foreground shadow-brutal p-8 pt-10 ${rotations[i % rotations.length]} hover:rotate-0 transition-transform`}
               style={{ transitionTimingFunction: "steps(3)" }}
             >
               {/* Corner tag */}

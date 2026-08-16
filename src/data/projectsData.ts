@@ -20,6 +20,8 @@ export interface ProjectData {
   tech: string[];
   github: string;
   external?: string;
+  isPrivate?: boolean;
+  isUnderDevelopment?: boolean;
   projectType: string;
   userRoles: UserRole[];
   mainFeatures: { title: string; desc: string }[];
@@ -40,8 +42,9 @@ export const projectsData: ProjectData[] = [
     desc: "Enterprise-grade HR Management app deployed on Google Play Store. Geolocation-validated attendance, FCM push notifications, ML Kit Face Recognition punch-in, and OTP authentication. Reduced app startup latency by 35% and delivery timelines by 25%.",
     summary: "YourHRMS is a multi-tenant Enterprise Human Resource Management System (HRMS) designed for corporate organizations, managers, and employees. It enables employees to record daily attendance via AI face recognition and GPS geofencing, submit leave applications, view work shifts, manage daily tasks, access salary payslips, and track client CRM follow-ups. HR Administrators and Managers can oversee company-wide attendance approvals, process leave requests, assign shifts, manage teams, generate PF/payroll reports, and onboard new employees.",
     tech: ["Flutter", "Provider", "Dio / HTTP", "ML Kit Face Detection", "GPS Geofencing", "Firebase FCM", "Local Biometrics", "Play Store"],
-    github: "https://github.com/kunal4419/YourHRMS_Details",
-    external: "https://play.google.com/store",
+    github: "https://github.com/kunal4419/",
+    external: "https://play.google.com/store/apps/details?id=com.sanpurnam.hrms",
+    isPrivate: true,
     projectType: "Multi-tenant Enterprise Human Resource Management System built with Flutter, Provider, Dio, ML Kit, Firebase FCM & Biometrics",
     userRoles: [
       {
@@ -125,7 +128,9 @@ export const projectsData: ProjectData[] = [
     desc: "Multi-tenant SaaS gym management platform with Supabase row-level security ensuring complete data isolation per gym owner. RBAC for Superadmin and Owner roles. Reduced missed renewals by 40% and manual follow-up effort by 60% via smart expiry filters and WhatsApp reminder automation.",
     summary: "Gym-Reminder-App (Onyx) is a mobile application designed for gym owners to manage member subscriptions and streamline WhatsApp membership renewal reminders. Gym owners can register members, set subscription plan durations (1, 3, 6, or 12 months), automatically calculate expiration dates, and send customizable 1-tap WhatsApp renewal notifications. The platform also includes a Super Admin role to onboard and manage gym owners, toggle gym account access, and monitor membership statistics across all registered gyms.",
     tech: ["Flutter", "Supabase", "Provider", "GoRouter", "WhatsApp URI Scheme", "Multi-tenant RLS", "Multi-language (EN/HI/MR)"],
+    isPrivate: true,
     github: "https://github.com/kunal4419/ONYX_Details",
+    external:"https://github.com/kunal4419/ONYX_Details/releases/download/oynx/OYNX.apk",
     projectType: "Multi-tenant SaaS Mobile App built with Flutter, Provider, GoRouter, and Supabase",
     userRoles: [
       {
@@ -195,6 +200,9 @@ export const projectsData: ProjectData[] = [
     summary: "MedCard ('One Card. Many Health Benefits.') is a digital healthcare platform designed to connect subscribers (patients/users) with verified healthcare service providers (hospitals, clinics, diagnostic labs, pharmacies). Subscribers can search for nearby providers using interactive maps, view detailed facility services and member discounts, purchase MedCard membership plans, and scan QR codes at provider locations for instant digital identification. The system also includes dedicated dashboards for Healthcare Providers and Field Executives.",
     tech: ["Flutter", "Provider", "Dio REST Client", "JWT Refresh", "Flutter Map", "Mobile Scanner", "QR Code Engine", "Connectivity Plus"],
     github: "https://github.com/kunal4419/MedCard_Details",
+    external: "",
+    isPrivate: true,
+    isUnderDevelopment: true,
     projectType: "Cross-platform mobile application built with Flutter, Dio REST Client with JWT refresh interceptors, and OpenStreetMap",
     userRoles: [
       {
@@ -279,7 +287,8 @@ export const projectsData: ProjectData[] = [
     desc: "Comprehensive sports facility management platform enabling customers to discover turfs and check real-time date-based slot availability. Features direct walk-in bookings for owners and system-wide slot blocking for maintenance.",
     summary: "The application is a comprehensive sports facility management and slot booking platform. It enables customers to discover sports turfs, check real-time slot availability, and submit booking requests for various sports. Turf owners can list their venues, set custom slot pricing, manage daily operating slots, create direct walk-in bookings, and approve or reject customer requests. System administrators have top-level control to manage all turfs, process booking requests platform-wide, block slots for maintenance or events, and analyze platform metrics via dashboard analytics.",
     tech: ["Flutter", "GetX", "Interactive Slot Grid", "Dynamic Pricing", "Role Dashboards", "In-App Alerts"],
-    github: "https://github.com/kunal4419/Turf_Booking_Details",
+    github: "https://github.com/kunal4419/Turf-Booking-System.git",
+    external:"https://github.com/kunal4419/Turf_Booking_Details/releases/download/TurfBook/TurfBook.apk",
     projectType: "Cross-platform mobile application built with Flutter & GetX state management",
     userRoles: [
       {
@@ -371,7 +380,8 @@ export const projectsData: ProjectData[] = [
     desc: "Financial management app for logging daily expenses, tracking morning/evening shop sales collections, custom color-coded category organization, net profit/loss calculation (Total Sales - Total Expenses), and PDF report generation.",
     summary: "Expense Tracker App is a financial management application designed for logging daily expenses, tracking daily shop/business sales collections, and organizing spending categories. It enables users to record expenses with custom payment modes (Cash, Card, UPI, Net Banking, etc.), track morning and evening sales inputs, and categorize spendings using system or custom categories. The app automatically calculates financial metrics—including today's expenses, monthly expenses, total cumulative spendings, monthly sales, and net profit/loss—and provides automated PDF summary report generation.",
     tech: ["Flutter", "Riverpod", "GoRouter", "Supabase", "PDF Engine", "Printing Package", "Adaptive Layout"],
-    github: "https://github.com/kunal4419/Expense_Tracker_Details",
+    github: "https://github.com/kunal4419/Expense-Tracker-App.git",
+    external:"https://github.com/kunal4419/Expense_Tracker_Details/releases/download/expensebook/ExpenseBook.apk",
     projectType: "Cross-platform financial application built with Flutter, Riverpod, GoRouter, and Supabase",
     userRoles: [
       {
@@ -430,7 +440,8 @@ export const projectsData: ProjectData[] = [
     desc: "Hindi-first tailoring order management system designed for dressmakers. Record garment measurements using hands-free Hindi voice dictation, itemized stitching charges, instant bill calculation, and 1-tap WhatsApp digital receipt card sharing.",
     summary: "Darzi App (darzi_app) is a Hindi-first tailoring order management application designed specifically for tailors, dressmakers, and sewing workers. It allows tailors to record customer orders, capture detailed garment measurements (for suits, shirts, pants, blouses, dresses, etc.) using Hindi voice input or manual entry, and attach stitching sub-types and charges. The app automatically calculates total bills, advance payments, and remaining balances, while enabling 1-tap digital receipt generation for sharing via WhatsApp along with direct customer phone calling.",
     tech: ["Flutter", "GetX", "Speech-to-Text", "Supabase", "WhatsApp Share", "Hindi UI", "Digital Receipt Card"],
-    github: "https://github.com/kunal4419/Darzi_Details",
+    github: "https://github.com/kunal4419/Darzi-App.git",
+    external:"https://github.com/kunal4419/Darzi_Details/releases/download/darziapp/DarziApp.apk",
     projectType: "Hindi-first cross-platform mobile application built with Flutter, GetX, Speech-to-Text, and Supabase",
     userRoles: [
       {

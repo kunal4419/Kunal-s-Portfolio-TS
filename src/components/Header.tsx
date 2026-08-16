@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const navItems = ["ABOUT", "SKILLS", "PROJECTS", "EDUCATION", "CONTACT"];
+const navItems = ["ABOUT", "PROJECTS", "SKILLS", "EDUCATION", "CONTACT"];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);

@@ -19,10 +19,11 @@ const Index = () => {
 
       <TickerBanner text="FLUTTER DEVELOPER · KUNAL PATEL · DART · CLEAN ARCHITECTURE · RIVERPOD · FIREBASE · PLAY STORE · SUPABASE · " />
       <HeroSection />
-      <TickerBanner text="ARCHITECTURE FIRST · PRODUCTION GRADE · CROSS PLATFORM · GEOLOCATION · FCM · JWT AUTH · " />
-      <FeatureGrid />
+      <TickerBanner text="YOURHRMS · ONYX · MEDCARD · TURF BOOKING · EXPENSE TRACKER · DARZI APP · " />
       <ComparisonSection />
-      <TickerBanner text="YOURHRMS · OYNX · MEDCARD · OPEN TO MID-SENIOR ROLES · LET'S BUILD SOMETHING · " />
+      <TickerBanner text="ARCHITECTURE FIRST · PRODUCTION GRADE · DOCKER & VPS · GEOLOCATION · FCM · JWT AUTH · " />
+      <FeatureGrid />
+      <TickerBanner text="CONTINUOUS LEARNING · 250+ DSA SOLVED · OPEN TO ROLES · LET'S BUILD SOMETHING · " />
       <EducationSection />
       <ContactSection />
 

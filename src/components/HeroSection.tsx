@@ -34,7 +34,7 @@ const HeroSection = () => {
         </h1>
 
         <p className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-          A Flutter application developer building production-grade cross-platform mobile apps. I work architecture-first — Clean Architecture, real API integration, and Play Store deployments that actually ship.
+          Flutter Application Developer & Mobile Architect building production-grade mobile systems. I work architecture-first — Clean Architecture, real-time APIs, and Play Store releases that actually ship.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

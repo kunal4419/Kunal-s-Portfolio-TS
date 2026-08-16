@@ -26,7 +26,7 @@ const educationData: EducationEntry[] = [
         num: "02",
         title: "B-TECH IN COMPUTER SCIENCE & ENGINEERING",
         institution: "Sharad Institute of Technology, Yadrav",
-        range: "July 2022 – June 2026 (Expected)",
+        range: "July 2022 – June 2026",
         location: "Yadrav, India",
         bullets: [
             "Current CGPA: 8.01",
