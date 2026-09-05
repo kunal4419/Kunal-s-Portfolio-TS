@@ -1,7 +1,21 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const navItems = ["ABOUT", "PROJECTS", "SKILLS", "EDUCATION", "CONTACT"];
+interface NavItem {
+  label: string;
+  id?: string;
+  path?: string;
+  isPage?: boolean;
+}
+
+const navItems: NavItem[] = [
+  { label: "ABOUT", id: "about" },
+  { label: "PROJECTS", id: "projects" },
+  { label: "SKILLS", id: "skills" },
+  { label: "EDUCATION", id: "education" },
+  { label: "INTERVIEW Q&A", path: "/interview-qa", isPage: true },
+  { label: "CONTACT", id: "contact" },
+];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,9 +29,19 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (sectionItem: string) => {
+  const handleNavClick = (item: NavItem) => {
     setMenuOpen(false);
-    const targetId = sectionItem.toLowerCase();
+
+    if (item.isPage && item.path) {
+      if (location.pathname === item.path) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        navigate(item.path);
+      }
+      return;
+    }
+
+    const targetId = item.id || item.label.toLowerCase();
 
     if (location.pathname === "/") {
       const element = document.getElementById(targetId);
@@ -37,6 +61,13 @@ const Header = () => {
         }
       }, 120);
     }
+  };
+
+  const isItemActive = (item: NavItem) => {
+    if (item.isPage && item.path) {
+      return location.pathname === item.path;
+    }
+    return false;
   };
 
   return (
@@ -60,16 +91,23 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => handleNavClick(item)}
-              className="font-mono text-xs uppercase tracking-widest text-secondary-foreground hover:-translate-y-[2px] hover:text-primary transition-all cursor-pointer"
-            >
-              {item}
-            </button>
-          ))}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          {navItems.map((item) => {
+            const active = isItemActive(item);
+            return (
+              <button
+                key={item.label}
+                onClick={() => handleNavClick(item)}
+                className={`font-mono text-xs uppercase tracking-widest transition-all cursor-pointer ${
+                  active
+                    ? "text-primary font-bold border-b-2 border-primary pb-0.5"
+                    : "text-secondary-foreground hover:-translate-y-[2px] hover:text-primary"
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
         </nav>
 
         <a
@@ -92,15 +130,20 @@ const Header = () => {
       {/* Mobile Drawer Navigation */}
       {menuOpen && (
         <div className="md:hidden bg-secondary border-t-2 border-foreground p-6 shadow-brutal flex flex-col gap-4 animate-glitch-reveal">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => handleNavClick(item)}
-              className="font-mono text-sm uppercase tracking-widest text-left text-secondary-foreground hover:text-primary py-2 border-b border-secondary-foreground/20 font-bold"
-            >
-              {item}
-            </button>
-          ))}
+          {navItems.map((item) => {
+            const active = isItemActive(item);
+            return (
+              <button
+                key={item.label}
+                onClick={() => handleNavClick(item)}
+                className={`font-mono text-sm uppercase tracking-widest text-left py-2 border-b border-secondary-foreground/20 font-bold ${
+                  active ? "text-primary" : "text-secondary-foreground hover:text-primary"
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
           <a
             href="mailto:patelkunal4419@gmail.com"
             onClick={() => setMenuOpen(false)}

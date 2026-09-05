@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="bg-secondary border-t-4 border-foreground py-16 md:py-24 relative overflow-hidden">
@@ -22,16 +24,45 @@ const Footer = () => {
           </div>
 
           {/* Right side nav */}
-          <nav className="flex items-center gap-8">
-            {["ABOUT", "PROJECTS", "CONTACT"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="font-mono text-xs uppercase tracking-widest text-secondary-foreground/70 hover:text-secondary-foreground transition-colors"
-              >
-                {item}
-              </a>
-            ))}
+          <nav className="flex flex-wrap items-center gap-6 md:gap-8">
+            <Link
+              to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="font-mono text-xs uppercase tracking-widest text-secondary-foreground/70 hover:text-secondary-foreground transition-colors"
+            >
+              ABOUT
+            </Link>
+            <Link
+              to="/#projects"
+              onClick={() => {
+                setTimeout(() => {
+                  const el = document.getElementById("projects");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              }}
+              className="font-mono text-xs uppercase tracking-widest text-secondary-foreground/70 hover:text-secondary-foreground transition-colors"
+            >
+              PROJECTS
+            </Link>
+            <Link
+              to="/interview-qa"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="font-mono text-xs uppercase tracking-widest text-primary hover:text-primary transition-colors font-bold"
+            >
+              INTERVIEW Q&A
+            </Link>
+            <Link
+              to="/#contact"
+              onClick={() => {
+                setTimeout(() => {
+                  const el = document.getElementById("contact");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              }}
+              className="font-mono text-xs uppercase tracking-widest text-secondary-foreground/70 hover:text-secondary-foreground transition-colors"
+            >
+              CONTACT
+            </Link>
           </nav>
         </div>
 
